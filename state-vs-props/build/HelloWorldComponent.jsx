@@ -11,6 +11,3 @@ const HelloWorld = React.createClass({
 })
 export default HelloWorld;
 
-
-/* You can also use props.message and have props as a param in the ({message, children})
-, but this is much cleaner */
