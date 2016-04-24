@@ -10,4 +10,6 @@ Either open index.html or you can change the script to refer to script.js
 Remember to remove the existing js if you do this.
 
 
+##state-vs-props
 
+Demonstrating how to set default props vs default state in React
