@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Constructor</title>
+  </head>
+<body>
+  <script>
+     function Animal(name) {
+      this.name = name
+    }
+    Animal.prototype.horse = function() {
+      console.log("I'm a horse")
+    }
+    var newObj = new Animal("Black panther");
+    newObj.horse();
+
+  </script>
+<div onclick="console.log(newObj.horse);">Hi!</div>
+  </body>
+</html>

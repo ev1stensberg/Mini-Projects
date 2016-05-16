@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Constructor</title>
+  </head>
+<body>
+  <script>
+  var SnowLeopard = function() {
+      this.specie = "Tiger"
+      this.name = "Snow Leopard"
+    }
+
+    SnowLeopard.prototype.showSpecs = function () {
+      console.log(" This is a " + this.cubName + " which is approx " + this.cubSize);
+    }
+
+    var Cub = function(cubSize, cubName) {
+      this.cubSize = cubSize;
+      this.cubName = cubName;
+    }
+
+    SnowLeopard.prototype.showParent = function () {
+      console.log(" The " + this.cubName + '´s parent is a ' + this.specie + " which is a " + this.name)
+    }
+
+    Cub.prototype = new SnowLeopard();
+
+    var Cat = new Cub("10 kg", "Snow Leopard Cub")
+  </script>
+<div onclick="console.log(Cat.showSpecs());">Hi!</div>
+<div onclick="console.log(Cat.showParent());">Hello</div>
+<div onclick="console.log(Cat.constructor)">Find your mommy</div>
+  </body>
+</html>
