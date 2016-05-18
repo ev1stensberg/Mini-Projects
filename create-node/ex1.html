@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>create-node</title>
+  </head>
+<body>
+  <script>
+function addHacks () {
+  var newDiv = document.createElement("div");
+  var newContent = document.createTextNode("Such hacks!");
+  newDiv.appendChild(newContent);
+  document.body.insertBefore(newDiv, null);
+}
+  </script>
+<div onclick="addHacks();">Press here to be amazed!</div>
+  </body>
+</html>

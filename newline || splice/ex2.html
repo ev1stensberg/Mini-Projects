@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Splice</title>
+  </head>
+<body>
+  <script>
+  var char = ["#", "# #", "# # #", "# # # #", "# # # # #"];
+
+  for(var i = 0; i < char.length; i++) {
+    console.log(char[0])
+    i++
+    console.log(char[1])
+    i++
+    console.log(char[2])
+    i++
+    console.log(char[3])
+    i++
+  }
+  for(var i = 0; i < char.length + 4; i++) {
+    text = char.splice(0,1)
+    console.log(text)
+
+  }
+  </script>
+  </body>
+</html>
