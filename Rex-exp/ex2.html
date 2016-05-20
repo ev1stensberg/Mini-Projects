@@ -9,8 +9,10 @@
 
     var firstQue = "Hey ho, this is not a string"
     console.log(firstQue)
-    var secondQue = firstQue.replace(/not/i, "in fact")
-    console.log(secondQue)
+    var secondQue = firstQue.search("string")
+    console.log(`this is the index of firstQue : ${secondQue}`)
+    secondQue = (secondQue + 1) % 2 // just bc I'm bored
+    console.log(`Did I learn this? The answer is binary: ${secondQue}`)
 
   </script>
 <div>Hi!</div>

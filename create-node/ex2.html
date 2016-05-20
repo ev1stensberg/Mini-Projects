@@ -2,14 +2,47 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+    <style>
+
+      div:first-child{
+        margin-top: 250px;
+        margin-left: 40%;
+      }
+      
+    </style>
     <title>create-node example 2</title>
   </head>
 <body>
   <script>
+  function displayNode() {
+  var node = document.baseURI;
+  console.log("This is the real URI: " + node)
 
-// Insert arbitrary code here!
+  node = node.replace(/file:/, "2")
+    node = node.replace(node.substring(1,3), "")
+      node = node.replace(/Users/i, "4")
+        node = node.replace(/evenstensberg/i, "6")
+          node = node.replace(/Documents/g, "8")
+            node = node.replace(/Mini-Projects/i, "64")
+              node = node.replace(/create-node/i, "128")
+                node = node.toString().replace(/ex2.html/g, "256")
+  var content =  " \n\n URI is boring, let's display bit values instead!\n Bit Values " + node
 
+  var element = document.createElement('div');
+
+  var newContent = document.createTextNode(content);
+
+  element.style.marginLeft = '190px'
+  element.style.marginTop = '70px'
+  element.style.fontSize = '25px'
+
+  element.appendChild(newContent);
+
+  document.body.insertBefore(element, null);
+}
   </script>
-<div >Hi!</div>
+  <div>
+<div onclick="displayNode()">Click here to display the URI</div>
+<div>
   </body>
 </html>
