@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>eval proxy</title>
+  </head>
+<body>
+  <script>
+    var node = document.createElement('div')
+    var content = document.createTextNode(eval(5+2))
+    node.appendChild(content);
+    document.body.insertBefore(node, null);
+  </script>
+<div>Hi!</div>
+  </body>
+</html>
