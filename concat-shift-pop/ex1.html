@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>concat-hacks</title>
+  </head>
+<body>
+  <script>
+  function concat() {
+  var firstArray = [1,2,3,4,5]
+  var secondArray = [6,7,8,9,10]
+  var thirdArray = firstArray.concat(secondArray,[,1,2,3,4,5])
+  return console.log(thirdArray)
+}
+
+  </script>
+<div onclick="concat();">Hi!</div>
+  </body>
+</html>

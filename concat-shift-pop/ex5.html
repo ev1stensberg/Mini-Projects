@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>ArrayFrom</title>
+  </head>
+<body>
+  <script>
+  function ArrayFrom() {
+    return function f() {
+      return Array.from(arguments);
+}
+}
+
+  </script>
+<div onclick="console.log(ArrayFrom()(1,2,3));">Hi!</div>
+  </body>
+</html>
