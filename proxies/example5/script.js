@@ -47,8 +47,10 @@
   \****************/
 /***/ function(module, exports) {
 
+	'use strict';
+	
 	//TODO:
-
+	
 	/*
 	* 1. Create proxies with traps
 	* 2. Create proxies with Reflect()
@@ -56,7 +58,17 @@
 	* 4. Intercept a keychain
 	* 5. Check if the transpiler needs stage-0 in babel
 	*/
-	"use strict";
+	
+	var proto = new Proxy({}, {
+	    get: function get(target, propertyKey, receiver) {
+	        console.log('GET ' + propertyKey);
+	        return target[propertyKey];
+	    }
+	});
+	
+	var obj = Object.create(proto);
+	
+	obj.bla;
 
 /***/ }
 /******/ ]);
