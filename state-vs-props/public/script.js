@@ -57,21 +57,38 @@
 	
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 	
-	var _HelloWorldComponent = __webpack_require__(/*! ./HelloWorldComponent */ 166);
-	
-	var _HelloWorldComponent2 = _interopRequireDefault(_HelloWorldComponent);
-	
-	var _WorldHelloComponent = __webpack_require__(/*! ./WorldHelloComponent */ 167);
-	
-	var _WorldHelloComponent2 = _interopRequireDefault(_WorldHelloComponent);
-	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	// You can use const Home = require('./App.jsx') if you'd like
+	var Parent = function Parent(_ref) {
+	  var _ref$name = _ref.name;
+	  var name = _ref$name === undefined ? "Even" : _ref$name;
+	  return _react2.default.createElement(
+	    'h1',
+	    null,
+	    'Heyho'
+	  );
+	};
 	
-	_reactDom2.default.render(_react2.default.createElement(_HelloWorldComponent2.default, null), document.getElementById('content'));
+	Parent.child = function (_ref2) {
+	  var _ref2$name = _ref2.name;
+	  var name = _ref2$name === undefined ? 'Even Andre' : _ref2$name;
+	  return _react2.default.createElement(
+	    'h1',
+	    null,
+	    name
+	  );
+	};
 	
-	_reactDom2.default.render(_react2.default.createElement(_WorldHelloComponent2.default, null), document.getElementById('content1'));
+	Parent.child.ofChild = function (_ref3) {
+	  var _ref3$name = _ref3.name;
+	  var name = _ref3$name === undefined ? 'Even Andre Stensberg' : _ref3$name;
+	  return _react2.default.createElement(
+	    'h1',
+	    null,
+	    name
+	  );
+	};
+	_reactDom2.default.render(_react2.default.createElement(Parent.child.ofChild, null), document.getElementById('content'));
 
 /***/ },
 /* 1 */
@@ -20522,88 +20539,6 @@
 	var ReactMount = __webpack_require__(/*! ./ReactMount */ 156);
 	
 	module.exports = ReactMount.renderSubtreeIntoContainer;
-
-/***/ },
-/* 166 */
-/*!***************************************!*\
-  !*** ./build/HelloWorldComponent.jsx ***!
-  \***************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var HelloWorld = _react2.default.createClass({
-	  displayName: 'HelloWorld',
-	  getInitialState: function getInitialState() {
-	    return { hello: 'hello' };
-	  },
-	  render: function render() {
-	    return _react2.default.createElement(
-	      'div',
-	      null,
-	      _react2.default.createElement(
-	        'h1',
-	        null,
-	        this.state.hello,
-	        '  this is state'
-	      )
-	    );
-	  }
-	});
-	exports.default = HelloWorld;
-	
-	/* You can also use props.message and have props as a param in the ({message, children})
-	, but this is much cleaner */
-
-/***/ },
-/* 167 */
-/*!***************************************!*\
-  !*** ./build/WorldHelloComponent.jsx ***!
-  \***************************************/
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _react = __webpack_require__(/*! react */ 1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var WorldHello = _react2.default.createClass({
-	  displayName: 'WorldHello',
-	
-	  getDefaultProps: function getDefaultProps() {
-	    return {
-	      value: 'hey'
-	    };
-	  },
-	
-	  render: function render() {
-	    return _react2.default.createElement(
-	      'h1',
-	      null,
-	      this.props.value,
-	      ' this is props'
-	    );
-	  }
-	});
-	
-	exports.default = WorldHello;
 
 /***/ }
 /******/ ]);

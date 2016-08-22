@@ -52,23 +52,58 @@
 	//TODO:
 	
 	/*
-	* 1. Create proxies with traps
 	* 2. Create proxies with Reflect()
-	* 3. Create proxies with get/set
 	* 4. Intercept a keychain
-	* 5. Check if the transpiler needs stage-0 in babel
 	*/
 	
-	var proto = new Proxy({}, {
-	    get: function get(target, propertyKey, receiver) {
-	        console.log('GET ' + propertyKey);
-	        return target[propertyKey];
+	function createSomething() {
+	    for (var _len = arguments.length, a = Array(_len), _key = 0; _key < _len; _key++) {
+	        a[_key] = arguments[_key];
 	    }
+	
+	    var dill = [].concat(a);
+	    return dill;
+	}
+	
+	var arrays = createSomething(1, 2, 3);
+	console.log(arrays.shift());
+	
+	// Allow proxies on negative indices & bracket notations
+	function createArray() {
+	    var handler = {
+	        get: function get(target, propKey, receiver) {
+	            // Sloppy way of checking for negative indices
+	            var index = Number(propKey);
+	            if (index < 0) {
+	                propKey = String(target.length + index);
+	            }
+	            return Reflect.get(target, propKey, receiver);
+	        }
+	    };
+	    // Wrap a proxy around an Array
+	    var target = [];
+	    target.push.apply(target, arguments);
+	    return new Proxy(target, handler);
+	}
+	var arr = createArray('a', 'b', 'c');
+	console.log(arr[-1]); // c
+	
+	// create databinding through set
+	function createObservedArray(callback) {
+	    var array = []; // create the array
+	    return new Proxy(array, { // return a  proxy from func, on the array
+	
+	        set: function set(target, propertyKey, value, receiver) {
+	            // use set trap and use target etc as params to pass down
+	            callback(propertyKey, value); // call the callback func
+	            return Reflect.set(target, propertyKey, value, receiver);
+	        }
+	    });
+	}
+	var observedArray = createObservedArray(function (key, value) {
+	    return console.log(key + '=' + value);
 	});
-	
-	var obj = Object.create(proto);
-	
-	obj.bla;
+	observedArray.push('a', 'b');
 
 /***/ }
 /******/ ]);
